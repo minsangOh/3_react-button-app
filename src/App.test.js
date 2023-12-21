@@ -12,7 +12,6 @@ test("the counter starts at 0", () => {
   expect(counterElement).toHaveTextContent(0);
 });
 
-
 // 마이너스 버튼의 텍스트가 "-"인지 테스트하는 코드
 test("minus button has correct text", () => {
   render(<App />);
@@ -23,7 +22,6 @@ test("minus button has correct text", () => {
   expect(buttonElement).toHaveTextContent("-");
 });
 
-
 // 플러스 버튼의 텍스트가 "+"인지 테스트하는 코드
 test("plus button has correct text", () => {
   render(<App />);
@@ -33,7 +31,6 @@ test("plus button has correct text", () => {
   // 해당 버튼의 텍스트 내용이 "+"인지 확인
   expect(buttonElement).toHaveTextContent("+");
 });
-
 
 // 플러스 버튼을 클릭했을 때 카운터가 1로 변경되는지 테스트하는 코드
 test("When the + button is pressed, the counter changes to 1", () => {
@@ -52,7 +49,6 @@ test("When the + button is pressed, the counter changes to 1", () => {
   expect(counterElement).toHaveTextContent(1);
 });
 
-
 // 플러스 버튼을 클릭했을 때 카운터가 -1로 변경되는지 테스트하는 코드
 test("When the - button is pressed, the counter changes to 1", () => {
   render(<App />);
@@ -65,7 +61,14 @@ test("When the - button is pressed, the counter changes to 1", () => {
 
   // 'counter'라는 test ID를 가진 요소를 다시 찾음
   const counterElement = screen.getByTestId("counter");
-  
+
   // 해당 요소의 텍스트 내용이 1인지 확인
   expect(counterElement).toHaveTextContent(-1);
+});
+
+test("on/off button has bluew color", () => {
+  render(<App />);
+
+  const buttonElement = screen.getByTestId("on/off-button");
+  expect(buttonElement).toHaveStyle({ backgroundColor: "blue" });
 });
